@@ -1,96 +1,93 @@
 package com.biz.commerce.vo;
 
 public class cmcVO {
-	private String strdate1;
-	private String strcode1;
-	private String strio1;
-	private String price1;
-	private String su1;
+	//mimc
+	private String strDate;
+	private String strPCode;
+	private String strIO;
+	private int intPrice;
+	private int intQuan;
 	
-	private String strcode2;
-	private String strname2;
-	private String strgs2;
-	private String mid2;
-	private String mcd2;
-	private String pum2;
-	private String jmic2;
-	public String getStrdate1() {
-		return strdate1;
+	//jpjb
+	private String strName;
+	private String strTex;
+	private int intIPrice;
+	private int intOPrice;
+	private String strPum;
+	private String strDept;
+	public String getStrDate() {
+		return strDate;
 	}
-	public void setStrdate1(String strdate1) {
-		this.strdate1 = strdate1;
+	public void setStrDate(String strDate) {
+		this.strDate = strDate;
 	}
-	public String getStrcode1() {
-		return strcode1;
+	public String getStrPCode() {
+		return strPCode;
 	}
-	public void setStrcode1(String strcode1) {
-		this.strcode1 = strcode1;
+	public void setStrPCode(String strPCode) {
+		this.strPCode = strPCode;
 	}
-	public String getStrio1() {
-		return strio1;
+	public String getStrIO() {
+		return strIO;
 	}
-	public void setStrio1(String strio1) {
-		this.strio1 = strio1;
+	public void setStrIO(String strIO) {
+		this.strIO = strIO;
 	}
-	public String getPrice1() {
-		return price1;
+	public int getIntPrice() {
+		return intPrice;
 	}
-	public void setPrice1(String price1) {
-		this.price1 = price1;
+	public void setIntPrice(int intPrice) {
+		this.intPrice = intPrice;
 	}
-	public String getSu1() {
-		return su1;
+	public int getIntQuan() {
+		return intQuan;
 	}
-	public void setSu1(String su1) {
-		this.su1 = su1;
+	public void setIntQuan(int intQuan) {
+		this.intQuan = intQuan;
 	}
-	public String getStrcode2() {
-		return strcode2;
+	public String getStrName() {
+		return strName;
 	}
-	public void setStrcode2(String strcode2) {
-		this.strcode2 = strcode2;
+	public void setStrName(String strName) {
+		this.strName = strName;
 	}
-	public String getStrname2() {
-		return strname2;
+	public String getStrTex() {
+		return strTex;
 	}
-	public void setStrname2(String strname2) {
-		this.strname2 = strname2;
+	public void setStrTex(String strTex) {
+		this.strTex = strTex;
 	}
-	public String getStrgs2() {
-		return strgs2;
+	public int getIntIPrice() {
+		return intIPrice;
 	}
-	public void setStrgs2(String strgs2) {
-		this.strgs2 = strgs2;
+	public void setIntIPrice(int intIPrice) {
+		this.intIPrice = intIPrice;
 	}
-	public String getMid2() {
-		return mid2;
+	public int getIntOPrice() {
+		return intOPrice;
 	}
-	public void setMid2(String mid2) {
-		this.mid2 = mid2;
+	public void setIntOPrice(int intOPrice) {
+		this.intOPrice = intOPrice;
 	}
-	public String getMcd2() {
-		return mcd2;
+	public String getStrPum() {
+		return strPum;
 	}
-	public void setMcd2(String mcd2) {
-		this.mcd2 = mcd2;
+	public void setStrPum(String strPum) {
+		this.strPum = strPum;
 	}
-	public String getPum2() {
-		return pum2;
+	public String getStrDept() {
+		return strDept;
 	}
-	public void setPum2(String pum2) {
-		this.pum2 = pum2;
-	}
-	public String getJmic2() {
-		return jmic2;
-	}
-	public void setJmic2(String jmic2) {
-		this.jmic2 = jmic2;
+	public void setStrDept(String strDept) {
+		this.strDept = strDept;
 	}
 	@Override
 	public String toString() {
-		return "cmcVO [strdate1=" + strdate1 + ", strcode1=" + strcode1 + ", strio1=" + strio1 + ", price1=" + price1
-				+ ", su1=" + su1 + ", strcode2=" + strcode2 + ", strname2=" + strname2 + ", strgs2=" + strgs2
-				+ ", mid2=" + mid2 + ", mcd2=" + mcd2 + ", pum2=" + pum2 + ", jmic2=" + jmic2 + "]";
+		return "cmcVO [strDate=" + strDate + ", strPCode=" + strPCode + ", strIO=" + strIO + ", intPrice=" + intPrice
+				+ ", intQuan=" + intQuan + ", strName=" + strName + ", strTex=" + strTex + ", intIPrice=" + intIPrice
+				+ ", intOPrice=" + intOPrice + ", strPum=" + strPum + ", strDept=" + strDept + "]";
 	}
+	
+	
 	
 }

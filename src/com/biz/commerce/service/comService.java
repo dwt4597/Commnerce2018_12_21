@@ -11,112 +11,89 @@ public class comService {
 	String mimc;
 	String spjb;
 	String save;
-	
-	
+
 	public comService(String[] files) {
 		spjbList = new ArrayList();
 		mimcList = new ArrayList();
 		this.mimc = files[0];
 		this.spjb = files[1];
 		this.save = files[2];
-		
+
 	}
+
 	public void Match() {
 		for (cmcVO vo : mimcList) {
 			for (cmcVO st : spjbList) {
-				
-					st.setStrdate1(vo.getStrdate1());
-					st.setStrcode1(vo.getStrcode1());
-					st.setStrio1(vo.getStrio1());
-					st.setPrice1(vo.getPrice1());
-					st.setSu1(vo.getSu1());	
+				if (vo.getStrPCode().equals(st.getStrPCode())) {
+					vo.setStrName(st.getStrName());
+					vo.setStrTex(st.getStrTex());
+					vo.setIntIPrice(st.getIntIPrice());
+					vo.setIntOPrice(st.getIntOPrice());
+					vo.setStrPum(st.getStrPum());
+					vo.setStrDept(st.getStrDept());
 				}
 			}
 		}
+	}
+
 	public void saving() {
-		String gNum = save;
-		
-		FileWriter fw;
+
 		PrintWriter pw;
-		cmcVO vo = new cmcVO();
 		try {
-			
+
 			pw = new PrintWriter(save);
-			String mimcz = vo.getStrio1();
-			
-			String danga = vo.getPrice1();
-			
-			int danga1 = Integer.valueOf(danga);
-			String su = vo.getSu1();
-			int su1 = Integer.valueOf(su);
-			
-			for(cmcVO v : spjbList) {
-			if(v.getStrio1().equals("1")) {
-				pw.println(
-					v.getStrdate1()+":"
-					+ "매입"+":"
-					+ v.getStrcode2() + ":"
-					+ v.getStrname2() + ":"
-					+ v.getPrice1() + ":"
-					+ v.getSu1()+":"
-					+ danga1 * su1+":"
-					+ "0"
-			);
-			} 
-			if (v.getStrio1().equals("1")) {
-				pw.println(
-						v.getStrdate1()+":"
-						+ "매출"+":"
-						+ v.getStrcode2() + ":"
-						+ v.getStrname2() + ":"
-						+ v.getPrice1() + ":"
-						+ v.getSu1()+":"
-						+ "0"+":"
-						+ danga1 * su1
-				);
+
+			for (cmcVO v : mimcList) {
+				if (v.getStrIO().equals("1")) {
+					//
+					pw.println(v.getStrDate() + ":" + "매입" + ":" + v.getStrPCode() + ":" + v.getStrName() + ":"
+							+ v.getIntPrice() + ":" + v.getIntQuan() + ":" + v.getIntPrice() * v.getIntQuan() + ":"
+							+ "0");
+				}
+				if (v.getStrIO().equals("2")) {
+					pw.println(v.getStrDate() + ":" + "매출" + ":" + v.getStrPCode() + ":" + v.getStrName() + ":"
+							+ v.getIntPrice() + ":" + v.getIntQuan() + ":" + "0" + ":"
+							+ v.getIntPrice() * v.getIntQuan());
+				}
+
 			}
-			
 			pw.close();
-			
-			}
-					
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-}
+	}
 
 	public void readspjb() {
 
 		FileReader fr;
-		
+
 		BufferedReader buffer;
-		
+
 		try {
 			fr = new FileReader(spjb);
-			
-			buffer = new BufferedReader(fr);
-			
-			// -- 파일을 읽기 위해 open
 
-			// -- 파일 읽기 실행
+			buffer = new BufferedReader(fr);
+
 			while (true) {
 				String reader = buffer.readLine();
-				
+
 				if (reader == null)
 					break;
 				String[] strF = reader.split(":");
-				
+
 				cmcVO vo = new cmcVO();
-				vo.setStrcode2(strF[0]);
-				vo.setStrname2(strF[1]);
-				vo.setStrgs2(strF[2]);
-				vo.setMid2(strF[3]);
-				vo.setMcd2(strF[4]);
-				vo.setPum2(strF[5]);
-				vo.setJmic2(strF[6]);
-				
-				
+				vo.setStrPCode(strF[0]);
+				vo.setStrName(strF[1]);
+				vo.setStrTex(strF[2]);
+				int intIPrice = Integer.valueOf(strF[3]);
+				int intOPrice = Integer.valueOf(strF[4]);
+				vo.setIntIPrice(intIPrice);
+				vo.setIntOPrice(intOPrice);
+				vo.setStrPum(strF[5]);
+				vo.setStrDept(strF[6]);
+				spjbList.add(vo);
+
 			}
 			buffer.close();
 			fr.close();
@@ -130,6 +107,7 @@ public class comService {
 		}
 
 	}
+
 	public void readmimc() {
 
 		FileReader fr;
@@ -138,7 +116,7 @@ public class comService {
 		try {
 			fr = new FileReader(mimc);
 			buffer = new BufferedReader(fr);
-		
+
 			while (true) {
 				String reader = buffer.readLine();
 				if (reader == null)
@@ -146,11 +124,13 @@ public class comService {
 				String[] strF = reader.split(":");
 
 				cmcVO vo = new cmcVO();
-				vo.setStrdate1(strF[0]);
-				vo.setStrcode1(strF[1]);
-				vo.setStrio1(strF[2]);
-				vo.setPrice1(strF[3]);
-				vo.setSu1(strF[4]);
+				vo.setStrDate(strF[0]);
+				vo.setStrPCode(strF[1]);
+				vo.setStrIO(strF[2]);
+				int intprice = Integer.valueOf(strF[3]);
+				vo.setIntPrice(intprice);
+				int intquan = Integer.valueOf(strF[4]);
+				vo.setIntQuan(intquan);
 				mimcList.add(vo);
 
 			}
