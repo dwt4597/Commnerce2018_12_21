@@ -2,19 +2,19 @@ package com.biz.commerce.vo;
 
 public class cmcVO {
 	//mimc
-	private String strDate;
-	private String strPCode;
-	private String strIO;
-	private int intPrice;
-	private int intQuan;
+	private String strDate; //거래일자
+	private String strPCode; //상품코드
+	private String strIO; //거래구분
+	private int intPrice; //단가
+	private int intQuan; //수량
 	
 	//jpjb
-	private String strName;
-	private String strTex;
-	private int intIPrice;
-	private int intOPrice;
-	private String strPum;
-	private String strDept;
+	private String strName; //상품명
+	private String strTex; //과세
+	private int intIPrice; //매입단가
+	private int intOPrice; //매출단가
+	private String strPum; //품목
+	private String strDept; //주매입처
 	public String getStrDate() {
 		return strDate;
 	}
